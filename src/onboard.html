@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+
+	<script>
+		// Check local storage
+		let localS = localStorage.getItem('theme'),
+			themeToSet = localS
+
+		// If local storage is not set, we check the OS preference
+		if (!localS) {
+			themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+		}
+
+		// Set the correct theme
+		document.documentElement.setAttribute('data-theme', themeToSet)
+	</script>
+	<!--<script>
+	function reloadPage() {
+		location.reload();
+	}
+	
+	setInterval(reloadPage, 3000);
+	</script>-->
+	<!-- Reset -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
+
+	<!-- Google fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&display=swap" rel="stylesheet">
+	  <link href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css rel="stylesheet">
+  <script src=https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js></script>
+  <link rel="stylesheet" href=https://unicons.iconscout.com/release/v4.0.0/css/thinline.css>
+
+	
+  <title>Bootstrap Example</title>
+  
+  <link rel="stylesheet" href="onboarding.css">
+  
+  
+</head>
+<body class="backgroundimg">
+<svg style="display: none">
+		<symbol id="icon-collapse" viewBox="0 0 20 20">
+			<path d="M14.1667 9.16668H4.50835L6.42502 7.25834C6.50271 7.18064 6.56435 7.0884 6.6064 6.98688C6.64845 6.88537 6.67009 6.77656 6.67009 6.66668C6.67009 6.55679 6.64845 6.44799 6.6064 6.34647C6.56435 6.24495 6.50271 6.15271 6.42502 6.07501C6.34732 5.99731 6.25507 5.93568 6.15356 5.89363C6.05204 5.85158 5.94323 5.82993 5.83335 5.82993C5.72347 5.82993 5.61466 5.85158 5.51314 5.89363C5.41162 5.93568 5.31938 5.99731 5.24168 6.07501L1.90835 9.40834C1.83248 9.4876 1.77301 9.58105 1.73335 9.68334C1.65 9.88623 1.65 10.1138 1.73335 10.3167C1.77301 10.419 1.83248 10.5124 1.90835 10.5917L5.24168 13.925C5.31915 14.0031 5.41132 14.0651 5.51287 14.1074C5.61442 14.1497 5.72334 14.1715 5.83335 14.1715C5.94336 14.1715 6.05228 14.1497 6.15383 14.1074C6.25538 14.0651 6.34755 14.0031 6.42502 13.925C6.50312 13.8475 6.56512 13.7554 6.60742 13.6538C6.64973 13.5523 6.67151 13.4434 6.67151 13.3333C6.67151 13.2233 6.64973 13.1144 6.60742 13.0129C6.56512 12.9113 6.50312 12.8191 6.42502 12.7417L4.50835 10.8333H14.1667C14.3877 10.8333 14.5997 10.7455 14.7559 10.5893C14.9122 10.433 15 10.221 15 10C15 9.779 14.9122 9.56703 14.7559 9.41075C14.5997 9.25447 14.3877 9.16668 14.1667 9.16668ZM17.5 3.33334C17.279 3.33334 17.067 3.42114 16.9108 3.57742C16.7545 3.7337 16.6667 3.94566 16.6667 4.16668V15.8333C16.6667 16.0544 16.7545 16.2663 16.9108 16.4226C17.067 16.5789 17.279 16.6667 17.5 16.6667C17.721 16.6667 17.933 16.5789 18.0893 16.4226C18.2456 16.2663 18.3333 16.0544 18.3333 15.8333V4.16668C18.3333 3.94566 18.2456 3.7337 18.0893 3.57742C17.933 3.42114 17.721 3.33334 17.5 3.33334V3.33334Z"/>
+		</symbol>
+</svg>
+<header id="main-header">
+		<nav>
+			<button id="main-header__sidebar-toggle">
+				<svg id="toggle-icon-menu">
+					<use xlink:href="#icon-menu"></use>
+				</svg>
+				<svg id="toggle-icon-close">
+					<use xlink:href="#icon-close"></use>
+				</svg>
+			</button>
+
+			<ul>
+				<li id="main-header__logo">
+					<img src="picture/BlueYonder-logo.png" alt="BlueYonder Logo">
+				</li>
+			</ul>
+			<!--<div class="heading">
+                    <p>TMS APP CONFIGURATION</p>
+            </div>-->
+			<div class="heading-container">
+    
+    <div class="text-container">
+        <h3 class="heading-text">App Configurations</h3>
+		</div>
+	</div>
+		</nav>
+	</header> <!-- main-header -->
+	<section id="main">
+		<div id="overlay"></div>
+		
+		<div id="sidebar">
+			<button id="sidebar__collapse">
+				<svg>
+					<use xlink:href="#icon-collapse"></use>
+				</svg>
+				<span>Collapse menu</span>
+			</button>
+
+			<nav id="sidebar__nav">
+				<ul>
+					<li>
+						<a href="home.html">
+							<span>Home</span>
+						</a>
+					</li>
+					<li>
+						<a href="onboard.html" class="active">
+							<span>Admin</span>
+						</a>
+					</li>
+					<li>
+						<a href="restartpage.html">
+							<span>Restart Component</span>
+						</a>
+					</li>
+					<li>
+						<a href="transchk.html">
+							<span>Transition Check</span>
+						</a>
+					</li>
+					
+				</ul>
+			</nav>
+		</div> <!-- sidebar -->
+		
+		<div id="main-content">
+			<div id="main-content__container">
+				
+		</div>
+		</div>
+		<div class="main-onboard">
+							<div class="tab">
+							<button class="tablinks" id="appHostButton" onclick="openTab(event, 'appHost')"> Application Hosting</button>
+							<button class="tablinks" onclick="openTab(event, 'custHost')">Customers Hosting</button>
+							<button class="tablinks" onclick="openTab(event, 'hostCust')">Hosted Customers</button>
+							<button class="tablinks" onclick="openTab(event, 'hostApp')">Hosted Application</button>
+						  </div>
+	<div id="appHost" class="tabcontent" style="display: block;">
+      <div class="topsection ">
+        <div class="input-container">
+            
+			<table>
+			<tr>
+            <th class="namestyles">Application Name</th>
+			<th>
+			<input type="text" id="Applicationname" required=""/>
+			</th>
+			</tr>
+			</table>
+          </div>
+		  
+          <div class="input-container">
+            <table>
+			<tr>
+            <th class="namestyles" >
+             Installation&nbsp; Drive </th>
+			<th><input type="text" id="defaulthost" required=""/>
+			</th>
+			</tr>
+			</table>
+          </div>
+      </div>
+      <div>
+      <div class="table-res mt-4">
+        <table id="dynamicTable" class="table3 table-bordered">
+          <thead>
+            <tr>
+              <th class="th3">Component Name</th>
+              <th class="th3">Path</th>
+              <th class="th3">Filename (Eg: .xml, .properties, .batch)</th>
+              <th class="th3">Specific Tag</th>
+              <th class="th3">Reference Key</th>
+              <th class="th3">Config Type</th>
+              <th class="th3">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                      <td class="td3"><input type="text" name="componentName[]" class="form-control"></td>
+                      <td class="td3"><input type="text" name="path[]" class="form-control"></td>
+                      <td class="td3"><input type="text" name="filename[]" class="form-control"></td>
+                      <td class="td3"><input type="text" name="specificTag[]" class="form-control"></td>
+                      <td class="td3"><input type="text" name="referenceKey[]" class="form-control"></td>
+                      <td class="td3">
+                          <select name="configType[]" class="form-control">
+                              <option value="memory">MEMORY</option>
+                              <option value="thread">THREAD</option>
+                              <option value="custom">CUSTOM</option>
+                              <!-- Add more options as needed -->
+                          </select>
+                      </td>
+                      <td class="td3">
+                          <button type="button" class="btn btn-outline-light form-control" onclick="deleterecord(this)">Delete</button>
+                      </td>
+					  
+                  </tr>
+          </tbody>
+        </table>
+		
+      </div>
+                
+    </div>
+                <button type="button" class="btn btn-sm btn-outline-light apphostaddrow" onclick="addRow()">Add Row</button>
+        <div>
+          <center><button class="btn btn-sm btn btn-outline-dark apphostsubmit" id="SubmitButton" onclick="collectDataAndSubmit()">SUBMIT</button></center>
+          <span id="btnText"></span>
+        </div>
+    </div>
+	  <!----------------- second tab -----!>
+			  
+<div id="custHost" class="tabcontent" style="display: none;">
+  <div class="frame33 mt-4">
+    <table>
+      <!-- First row: Application Name and Dropdown -->
+      <tr>
+        
+          <p class="Appllicationname ptag secondtabnamestyles" >Application Name</p>
+          <div class="rectangle6">
+            <div class="dropdown">
+              <button class="light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Select
+              </button>
+              <ul class="dropdown-menu" id="appDropdown" aria-labelledby="dropdownMenuButton1">
+                <!-- Dynamically populated options will appear here -->
+              </ul>
+            </div>
+            <input type="hidden" class="app-textBox" />
+          </div>
+        
+      </tr>
+
+      <!-- Second row: Customer Name input -->
+      <tr>
+        <p class="customer secondtabnamestyles">Customer Name</p>
+		
+        <input type="text" id="customerName" required />
+		</tr>
+      
+ 
+      <!-- Third row: Server Name input -->
+      <tr>
+	  
+        <div class="content">
+			<label class="server secondtabnamestyles">Server Name</label>
+	  
+		
+			<ul id="tags" class="servernamestyles"><input type="text" spellcheck="false"></ul>
+        </div>
+		
+      </tr>
+	  
+
+      <!-- Fourth row: Components to be hosted (multi-select dropdown) -->
+      <tr>
+        <p class="serverptag secondtabnamestyles">Components to be host:</p>
+        
+          <div class="rectangle6">
+            <div class="drop custom-select">
+              <!-- Custom Select for Multi-select Dropdown -->
+              <div class="select-selected">Select options</div>
+              <div class="select-items" id="hostDropdownButton"></div>
+              <input type="hidden" class="host-textBox" />
+            </div>
+          </div>
+       
+      </tr>
+
+      <!-- Submit button -->
+      <tr>
+        <th colspan="2">
+          <div class="d-flex justify-content-center">
+            <button class="btn btn-sm btn-outline-dark custhostsubmit" id="SubmitButton" onclick="submitData()">SUBMIT</button>
+          </div>
+        </th>
+      </tr>
+    </table>
+
+    <!-- Placeholder for result text -->
+    <span id="btnText"></span>
+  </div>
+</div>
+
+	  
+	  <!------Last tab------------!>
+	  
+	  <div id="hostCust" class="tabcontent" style="display: none;">
+        <div class="frame34 mt-4">
+		<Table><tr>
+            <div class="form-group">
+                <th><p class="nameofthecustomer2">Application Name</p></th>
+                <th><div class="rectangle6">
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownAppMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Select
+                        </button>
+						
+                        <ul class="dropdown-menu" id="ApplicationDropdown" aria-labelledby="dropdownMenuButton1"></ul>
+                    </div>
+                    <input type="hidden" class="Application-textBox">
+                </div></th>
+            </div></tr>
+			<tr>
+            <div class="form-group">
+                <th><p class="server">Customer Name</p></th>
+                <th><div class="rectangle6">
+                  <div class="drop">
+                    <button class="btn btn-light" type="button" id="customerDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                      Select
+                    </button>
+                    <ul class="dropdown-menu" id="customerDropdown" aria-labelledby="customerDropdownButton"></ul>
+                  </div>
+                  <input type="hidden" class="customerDropdown-textBox">
+                </div></th>
+              </div>
+			  </tr>
+              <tr><div class="form-group">
+                <th><p class="server">Server Name</p></th>
+                <th><div class="rectangle6">
+                  <div class="dp">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="serverDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                      Select
+                    </button>
+                    <ul class="dropdown-menu" id="serverDropdown" aria-labelledby="serverDropdownButton"></ul>
+                  </div>
+                  <input type="hidden" class="serverDropdown-textBox">
+                </div></th>
+              </div></tr>
+			  <tr><th><button class="btn btn-outline-dark hostcustcheckbutton" id="checkButton" type="button">Check</button><th><tr>
+			  </Table>
+          </div>
+		  
+    
+    <div class="frame-1">
+  <p class="topic">MEMORY</p>
+  <div class="table-responsive mt-4">
+    <table id="appConfigTable" class="table1 table-bordered">
+    <thead>
+      <tr>
+	    <th class="th1">ID</th>
+        <th class="th1">Component Name</th>
+        <th class="th1">Path</th>
+        <th class="th1">Filename (Eg: .xml, .properties, .batch)</th>
+        <th class="th1">Specific Tag</th>
+        <th class="th1">Reference Key</th>
+        <th class="th1">Actions</th>
+      </tr>
+    </thead>
+    <tbody id="appConfigTableBody">
+        <tr>
+		 <td class="td1"><input type="text" name="tempId[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="componentName[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="path[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="filename[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="specificTag[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="referenceKey[]" class="form-control" readonly></td>
+		 
+          <td class="td1">
+            <button type="button" class="btn btn-outline-light form-control" onclick="editRow(this)">Edit</button>
+            <button type="button" class="btn btn-outline-light form-control" onclick="deleteRow(this)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+   <button type="button" class="btn btn-primary" id="add" onclick="addMemory()">Add Row</button>
+</div>
+
+<div class="frame-2">
+  <p class="topic-2">THREAD</p>
+  <div class="table-responsive mt-4">
+    <table id="appConfigThreadsTable" class="table1 table-bordered">
+      <thead>
+        <tr>
+		<th class="td1">ID</th>
+          <th class="th1">Component Name</th>
+          <th class="th1">Path</th>
+          <th class="th1">Filename (Eg: .xml, .properties, .batch)</th>
+          <th class="th1">Specific Tag</th>
+          <th class="th1">Reference Key</th>
+          <th class="th1">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="appConfigThreadsTableBody">
+        <tr>
+		<td class="td1"><input type="text" name="tempId[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="componentName[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="path[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="filename[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="specificTag[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="referenceKey[]" class="form-control" readonly></td>
+          <td class="td1">
+            <button type="button" class="btn btn-outline-light form-control" onclick="editRow(this)">Edit</button>
+            <button type="button" class="btn btn-outline-light form-control" onclick="deleteRow(this)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button type="button" class="btn btn-primary" id="add" onclick="addThread()">Add Row</button>
+</div>
+
+<div class="frame-3">
+  <p class="topic-3">CUSTOM</p>
+  <div class="table-responsive mt-4">
+    <table id="appConfigCustomTable" class="table1 table-bordered">
+      <thead>
+        <tr>
+		<th class="th1">ID</th>
+          <th class="th1">Component Name</th>
+          <th class="th1">Path</th>
+          <th class="th1">Filename (Eg: .xml, .properties, .batch)</th>
+          <th class="th1">Specific Tag</th>
+          <th class="th1">Reference Key</th>
+          <th class="th1">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="appConfigCustomTableBody">
+        <tr>
+		<td class="td1"><input type="text" name="tempId[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="componentName[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="path[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="filename[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="specificTag[]" class="form-control" readonly></td>
+          <td class="td1"><input type="text" name="referenceKey[]" class="form-control" readonly></td>
+          <td class="td1">
+            <button type="button" class="btn btn-outline-light form-control" onclick="editRow(this)">Edit</button>
+            <button type="button" class="btn btn-outline-light form-control" onclick="deleteRow(this)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button type="button" class="btn btn-primary" id="add" onclick="addCustom()">Add Row</button>
+  <div style="margin-top:10px;">
+              <center><button class="btn btn-outline-dark" id="submitButton">SUBMIT</button>
+              <span id="btnText"></span></center>
+            </div>
+    
+</div>
+</div> 
+<!--Hosted Application-->
+<div id="hostApp" class="tabcontent" style="display: block;">
+<div class="topsection ">
+<div class="input-container">
+<table>
+<tr>
+<th style="padding:8px">Application Name</th>
+<th>
+<input type="text" id="Appname" required=""/>
+</th>
+</tr>
+ <tr><th><button class="btn btn-outline-dark hostcustcheckbutton" id="check" type="button">Check</button><th><tr>
+</table>
+</div>
+</div>
+<div>
+<div class="table-res mt-4">
+<table id="appTable" class="table3 table-bordered">
+<thead>
+<tr>
+<th class="th3">ID</th>
+<th class="th3">Component Name</th>
+<th class="th3">Path</th>
+<th class="th3">Filename (Eg: .xml, .properties, .batch)</th>
+<th class="th3">Specific Tag</th>
+<th class="th3">Reference Key</th>
+<th class="th3">Config Type</th>
+<th class="th3">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="td3"><input type="text" name="tempId[]" class="form-control" readonly></td>
+<td class="td3"><input type="text" name="componentName[]" class="form-control" readonly></td>
+<td class="td3"><input type="text" name="path[]" class="form-control" readonly></td>
+<td class="td3"><input type="text" name="filename[]" class="form-control" readonly></td>
+<td class="td3"><input type="text" name="specificTag[]" class="form-control" readonly></td>
+<td class="td3"><input type="text" name="referenceKey[]" class="form-control" readonly></td>
+<td class="td3"><input type="text" name="configType[]" class="form-control" readonly></td>
+<td class="td3">
+<button type="button" class="btn" onclick="editAppRow(this)">Edit</button>
+<button type="button" class="btn" onclick="deleteAppRow(this)">Delete</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<button type="button" class="btn btn-primary" id="hostadd" onclick="addAppRow()">Add Row</button>
+</div>
+<div>
+<center><button class="btn btn-outline-dark" id="SubmitApp" >SUBMIT</button></center>
+<span id="btnText"></span>
+</div>
+
+        
+	</div>
+	</div>
+  </section>
+  <div class="loading-screen">
+  <div class="loading">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<script src="onboard.js"> </script>
+</body>
+</html>

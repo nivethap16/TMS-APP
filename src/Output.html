@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TMS App Configuration Report</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="transresult.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm">
+<div class="container-fluid">
+<div class="navbar-brand">
+<img class="logo" src="picture/BlueYonder-logo.png" alt="BlueYonder Logo"/>
+</div> 
+<div class="heading">
+<h3>TMS APP CONFIGURATION</h3>
+</div>
+</div>
+</nav>
+<div class="container-fluid">
+<div>
+<img class="background" src="picture/blue.jpg" width="100%" height="100%" alt="Background Image"/>
+</div>
+<a href="transchk.html"><i class='bx bxs-left-arrow-circle bx-md'></i></a>
+<div id="dynamicContent" class="mt-3">
+<!-- This is where the dynamic content will be inserted -->
+            <h4>Customer: AlconVision</h4><h4>Server: tsba430201001</h4><h4>Service Report</h4><table class='table table-bordered'><thead><tr><th>Service Name</th><th>Status</th></tr></thead><tbody><tr><td>SplunkForwarder</td><td>Running</td></tr></tbody></table><h4>Scheduled Tasks Report</h4><table class='table table-bordered'><thead><tr><th>Task Name</th><th>State</th><th>Enabled</th></tr></thead><tbody><tr><td></td><td></td><td></td></tr></tbody></table><h4>File Content Report</h4><pre>AutomateDB File not found
+AutomateDB File not found</pre><h4>Archive Settings Report</h4><pre>|FOLDER|DAY|1|F:\Archives\TM_Logs|DAYS|3|F:\TM\logs|FALSE|TRUE|FALSE|60| |FOLDER|DAY|1|F:\Archives\TP_Logs\logs|DAYS|3|F:\TP\logs|FALSE|TRUE|FALSE|60| |FOLDER|DAY|1|F:\Archives\TMWEB\TMGR_LOGS|DAYS|3|F:\TMWEB\tmgr_domain\logs|FALSE|TRUE|FALSE|60| |FOLDER|DAY|1|F:\Archives\TMWEB\TMRIA_LOGS|DAYS|3|F:\TMWEB\tmria_domain\logs|FALSE|TRUE|FALSE|60| |FOLDER|DAY|1|F:\Archives\ABPP_LOGS\ApprovalChain|DAYS|3|F:\Deployments\ApprovalChain\LOGS|FALSE|TRUE|FALSE|60| |FOLDER|DAY|1|F:\Archives\ABPP_LOGS\CEA|DAYS|3|F:\Deployments\CEA\LOGS|FALSE|TRUE|FALSE|60| |FOLDER|DAY|1|F:\Archives\ABPP_LOGS\FreightAuction|DAYS|3|F:\Deployments\FreightAuction\LOGS|FALSE|TRUE|FALSE|60| |FOLDER|DAY|1|F:\Archives\ABPP_LOGS\Mobile|DAYS|3|F:\Deployments\Mobile\logs|FALSE|TRUE|FALSE|60| |FOLDER|DAY|1|F:\Archives\P44_Extract\Extract|DAYS|3|F:\Programs\P44_Extract\Archive|FALSE|TRUE|FALSE|60| |FOLDER|DAY|1|F:\Archives\P44_Extract\Logs|DAYS|3|F:\Programs\P44_Extract\Log|FALSE|TRUE|FALSE|60| |FOLDER|DAY|1|F:\Archives\ABPP_LOGS\ShipmentConsolidation\Logs|DAYS|3|F:\Deployments\ShipmentConsolidation\log|FALSE|TRUE|FALSE|60|</pre><p>Error: Failed to execute the Query: Exception calling "Open" with "0" argument(s): "A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)"</p><p>Error: Failed to execute the Query: Exception calling "Open" with "0" argument(s): "A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)"</p>
+</div>
+<div class="frame22 mt-3">
+<button class="btn btn-outline-dark" onclick="generateWordWithHtml()">Download</button>
+</div>
+</div>
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-docx-js/0.8.0/html-docx.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script>
+        function generateWordWithHtml() {
+            const dynamicContent = document.getElementById('dynamicContent').innerHTML;
+            const converted = htmlDocx.asBlob(dynamicContent);
+            saveAs(converted, 'TMS_App_Report_with_HTML.docx');
+        }
+</script>
+</body>
+</html>
